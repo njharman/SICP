@@ -15,3 +15,41 @@ Ubuntu assumed. ::
 
 rlwrap makes the repl not suck(paren matching, readline like history).
 
+Slimey Vim
+----------
+Butchered from this__ vim plugin.  ::
+
+  function Send_to_Screen(text)
+    if !exists("b:slime")
+      call Screen_Vars()
+    end
+    let escaped_text = substitute(shellescape(a:text), "\\\\\n", "\n", "g")
+    call system("screen -S " . b:slime["sessionname"] . " -X stuff " . escaped_text)
+  endfunction
+  function Screen_Vars()
+    if !exists("b:slime")
+      let b:slime = {"sessionname": ""}
+    end
+    let b:slime["sessionname"] = input("session name: ", b:slime["sessionname"], "custom,Screen_Session_Names")
+  endfunction
+
+  " send visual selection
+  vmap <C-c><C-c> "ry:call Send_to_Screen(@r)<CR>
+  " send paragraph under cursor
+  nmap <C-c><C-c> vip<C-c><C-c>
+  " send whole file
+  nmap <F10> :0,$y r<CR>:call Send_to_Screen(@r)<CR>
+
+__ https://github.com/jpalardy/vim-slime/blob/master/plugin/slime.vim
+
+
+This will starts (in other terminal) the screen session running scheme repl::
+
+  screen -S sicp rlwrap scheme -large
+
+
+Notes and Things
+================
+`The Adventures of a Pythonista in Schemeland.`__
+
+__ http://www.phyast.pitt.edu/~micheles/scheme/index.html
