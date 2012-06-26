@@ -1,7 +1,8 @@
-For fun my coworkers__ and I are watching the SICP videos and doing the releated `6.001 MIT opencourseware`__.
+For fun my coworkers__ and I are watching the SICP videos and doing the releated `6.001 MIT opencourseware`__.  The `Python Version of SICP`__.
 
 __ http://www.mutualmobile.com/company/jobs/
 __ http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/
+__ http://www-inst.eecs.berkeley.edu/~cs61a/fa11/61a-python/content/www/index.html
 
 These are my solutions to the problems/tests from the book and course.
 
